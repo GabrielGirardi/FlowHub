@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
 import { Music, Radio, Sliders } from 'lucide-react';
 
-import LiveStreamPlayer from '@/components/lofi/LiveStreamPlayer';
+import LiveStreamPlayer from '@/components/lofi/live-stream-player';
 
 const LofiMusic = () => {
     return (
