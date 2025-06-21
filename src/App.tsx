@@ -1,11 +1,5 @@
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { TimerProvider } from "@/context/timer-context";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import GlobalTimerNotification from "@/components/global-timer-notification";
 import Layout from "./components/layout/app-layout";
 
 import AITools from "./pages/ai-tools";
@@ -28,46 +22,33 @@ import TodoList from "./pages/todo-list";
 import WaterReminder from "./pages/water-reminder";
 import YouTubePlayer from "./pages/youtube-player";
 
-const queryClient = new QueryClient();
+const routing = createBrowserRouter([
+  {
+    element: <Layout />,
+    children: [
+      { path: "/", element: <Index /> },
+      { path: "/todo", element: <TodoList /> },
+      { path: "/deploy-checklist", element: <DeployChecklist /> },
+      { path: "/code-snippets", element: <CodeSnippets /> },
+      { path: "/lofi", element: <LofiMusic /> },
+      { path: "/pomodoro", element: <Pomodoro /> },
+      { path: "/search", element: <QuickSearch /> },
+      { path: "/internet-search", element: <InternetSearch /> },
+      { path: "/water-reminder", element: <WaterReminder /> },
+      { path: "/fake-data", element: <FakeData /> },
+      { path: "/json-formatter", element: <JsonFormatter /> },
+      { path: "/donation", element: <Donation /> },
+      { path: "/tech-news", element: <TechNews /> },
+      { path: "/ai-tools", element: <AITools /> },
+      { path: "/currency-converter", element: <CurrencyConverter /> },
+      { path: "/notepad", element: <Notepad /> },
+      { path: "/youtube-player", element: <YouTubePlayer /> },
+      { path: "/kanban", element: <Kanban /> },
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+]);
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <TimerProvider>
-        <GlobalTimerNotification />
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route element={<Layout />}>
-              <Route path="/" element={<Index />} />
-              <Route path="/todo" element={<TodoList />} />
-              <Route path="/deploy-checklist" element={<DeployChecklist />} />
-              <Route path="/code-snippets" element={<CodeSnippets />} />
-              <Route path="/lofi" element={<LofiMusic />} />
-              <Route path="/pomodoro" element={<Pomodoro />} />
-              <Route path="/search" element={<QuickSearch />} />
-              <Route path="/internet-search" element={<InternetSearch />} />
-              <Route path="/water-reminder" element={<WaterReminder />} />
-              <Route path="/fake-data" element={<FakeData />} />
-              <Route path="/json-formatter" element={<JsonFormatter />} />
-              <Route path="*" element={<NotFound />} />
-              <Route path="/donation" element={<Donation />} />
-              <Route path="/tech-news" element={<TechNews />} />
-              <Route path="/ai-tools" element={<AITools />} />
-              <Route
-                path="/currency-converter"
-                element={<CurrencyConverter />}
-              />
-              <Route path="/notepad" element={<Notepad />} />
-              <Route path="/youtube-player" element={<YouTubePlayer />} />
-              <Route path="/kanban" element={<Kanban />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </TimerProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
-
-export default App;
+export default function App() {
+  return <RouterProvider router={routing} />;
+}

@@ -363,7 +363,7 @@ export function Sidebar({ theme, toggleTheme }: SidebarProps) {
                               <Link
                                 key={item.name}
                                 to={item.path}
-                                className="block px-2 py-1 hover:bg-accent rounded text-sm"
+                                className="block px-2 py-1 hover:text-muted-foreground hover:bg-accent rounded text-sm"
                                 onClick={() => isMobile && setMobileOpen(false)}
                               >
                                 {item.name}
@@ -415,7 +415,7 @@ export function Sidebar({ theme, toggleTheme }: SidebarProps) {
         </nav>
         <div
           className={cn(
-            "p-4 border-t border-sidebar-border flex",
+            "items-center p-4 border-t border-sidebar-border flex",
             collapsed && !isMobile ? "justify-center" : "justify-between"
           )}
         >
