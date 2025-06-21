@@ -6,133 +6,23 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { mimic } from "@/lib/mimic";
 import { cn } from "@/lib/utils";
 import {
-  Bot,
-  CheckSquare,
   ChevronDown,
   ChevronRight,
-  Clock,
-  Coffee,
-  Database,
-  DollarSign,
-  Droplet,
-  FileJson,
   FileText,
   Globe,
-  Home,
   ListTodo,
   Menu,
   Moon,
   Music,
-  Newspaper,
-  Scroll,
-  Search,
   Sun,
-  Trello,
   X,
-  Youtube,
 } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { WeatherWidget } from "../weather-widget";
-
-type NavItem = {
-  name: string;
-  icon: React.ElementType;
-  path: string;
-  category?: string;
-};
-
-const navItems: NavItem[] = [
-  { name: "Home", icon: Home, path: "/" },
-  {
-    name: "To-Do List",
-    icon: ListTodo,
-    path: "/todo",
-    category: "productivity",
-  },
-  { name: "Kanban", icon: Trello, path: "/kanban", category: "productivity" },
-  {
-    name: "Pomodoro",
-    icon: Clock,
-    path: "/pomodoro",
-    category: "productivity",
-  },
-  { name: "Notepad", icon: Scroll, path: "/notepad", category: "productivity" },
-  {
-    name: "Water Reminder",
-    icon: Droplet,
-    path: "/water-reminder",
-    category: "productivity",
-  },
-  {
-    name: "Internet Search",
-    icon: Globe,
-    path: "/internet-search",
-    category: "productivity",
-  },
-
-  {
-    name: "Lo-Fi Music",
-    icon: Music,
-    path: "/lofi",
-    category: "entertainment",
-  },
-  {
-    name: "YouTube Player",
-    icon: Youtube,
-    path: "/youtube-player",
-    category: "entertainment",
-  },
-
-  {
-    name: "Currency Converter",
-    icon: DollarSign,
-    path: "/currency-converter",
-    category: "utilities",
-  },
-  {
-    name: "Tech News",
-    icon: Newspaper,
-    path: "/tech-news",
-    category: "utilities",
-  },
-
-  { name: "AI Tools", icon: Bot, path: "/ai-tools", category: "development" },
-  {
-    name: "Deploy Checklist",
-    icon: CheckSquare,
-    path: "/deploy-checklist",
-    category: "development",
-  },
-  {
-    name: "Code Snippets",
-    icon: FileText,
-    path: "/code-snippets",
-    category: "development",
-  },
-  {
-    name: "Quick Search",
-    icon: Search,
-    path: "/search",
-    category: "development",
-  },
-  {
-    name: "Fake Data",
-    icon: Database,
-    path: "/fake-data",
-    category: "development",
-  },
-  {
-    name: "JSON Formatter",
-    icon: FileJson,
-    path: "/json-formatter",
-    category: "development",
-  },
-
-  { name: "Apoie o Projeto", icon: Coffee, path: "/donation" },
-];
 
 interface SidebarProps {
   theme: string;
@@ -175,7 +65,7 @@ export function Sidebar({ theme, toggleTheme }: SidebarProps) {
     development: { name: "Desenvolvimento", icon: FileText },
   };
 
-  const groupedItems = navItems.reduce<Record<string, NavItem[]>>(
+  const groupedItems = mimic.modules.reduce<Record<string, NavItem[]>>(
     (acc, item) => {
       if (!item.category) {
         if (!acc["other"]) acc["other"] = [];
@@ -193,8 +83,8 @@ export function Sidebar({ theme, toggleTheme }: SidebarProps) {
     {}
   );
 
-  const homeItem = navItems.find((item) => item.path === "/");
-  const donationItem = navItems.find((item) => item.path === "/donation");
+  const homeItem = mimic.modules.find((item) => item.path === "/");
+  const donationItem = mimic.modules.find((item) => item.path === "/donation");
 
   return (
     <>

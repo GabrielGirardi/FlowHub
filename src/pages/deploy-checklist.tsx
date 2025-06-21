@@ -3,28 +3,14 @@ import { ChecklistItemType } from "@/components/deploy-checklist/checklist-item"
 import ChecklistItems from "@/components/deploy-checklist/checklist-items";
 import ChecklistProgress from "@/components/deploy-checklist/checklist-progress";
 import { useLocalStorage } from "@/hooks/use-local-storage.ts";
+import { mimic } from "@/lib/mimic";
 import { motion } from "framer-motion";
 import { CheckSquare, Rocket } from "lucide-react";
-
-const DEFAULT_ITEMS: ChecklistItemType[] = [
-  { id: "1", text: "Executar todos os testes", completed: false },
-  { id: "2", text: "Verificar mensagens de console", completed: false },
-  {
-    id: "3",
-    text: "Verificar compatibilidade cross-browser",
-    completed: false,
-  },
-  { id: "4", text: "Verificar responsividade", completed: false },
-  { id: "5", text: "Otimizar imagens e assets", completed: false },
-  { id: "6", text: "Verificar SEO", completed: false },
-  { id: "7", text: "Validar formulários", completed: false },
-  { id: "8", text: "Verificar performance", completed: false },
-];
 
 const DeployChecklist = () => {
   const [items, setItems] = useLocalStorage<ChecklistItemType[]>(
     "deployChecklist",
-    DEFAULT_ITEMS
+    mimic.pages.deployChecklist.defaultItems
   );
 
   const addItem = (text: string) => {

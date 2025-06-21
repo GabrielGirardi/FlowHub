@@ -1,49 +1,18 @@
-import { useState, useRef, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Slider } from '@/components/ui/slider';
-import { Play, Pause, Volume2, VolumeX, Radio, Wifi, WifiOff } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
-
-type LiveStream = {
-  id: string;
-  name: string;
-  url: string;
-  description: string;
-}
-
-const liveStreams: LiveStream[] = [
-  {
-    id: "chillhop",
-    name: "Chillhop Radio",
-    url: "https://streams.fluxfm.de/Chillhop/mp3-320/streams.fluxfm.de/",
-    description: "Lo-fi hip hop beats to relax/study to",
-  },
-  {
-    id: "lofi-girl",
-    name: "Lo-Fi Cafe",
-    url: "https://streams.fluxfm.de/Lounge/mp3-320/streams.fluxfm.de/",
-    description: "Peaceful coffee shop ambience",
-  },
-  {
-    id: "study-beats",
-    name: "Study Beats",
-    url: "https://streams.fluxfm.de/Chillout/mp3-320/streams.fluxfm.de/",
-    description: "Perfect for concentration and focus",
-  },
-  {
-    id: "ambient-sounds",
-    name: "Ambient Sounds",
-    url: "https://streams.fluxfm.de/Ambient/mp3-320/streams.fluxfm.de/",
-    description: "Relaxing ambient soundscapes",
-  },
-  {
-    id: "nature-sounds",
-    name: "Nature Sounds",
-    url: "https://streams.fluxfm.de/Nature/mp3-320/streams.fluxfm.de/",
-    description: "Soothing nature sounds for relaxation",
-  }
-];
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Slider } from "@/components/ui/slider";
+import { useToast } from "@/hooks/use-toast";
+import { mimic } from "@/lib/mimic";
+import {
+  Pause,
+  Play,
+  Radio,
+  Volume2,
+  VolumeX,
+  Wifi,
+  WifiOff,
+} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 const LiveStreamPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -68,24 +37,24 @@ const LiveStreamPlayer = () => {
       setIsMuted(JSON.parse(savedMuted));
     }
     if (savedStream) {
-      const stream = liveStreams.find((s) => s.id === savedStream);
+      const stream = mimic.liveStreams.find((s) => s.id === savedStream);
       if (stream) {
         setCurrentStream(stream);
       }
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("liveStreamVolume", volume.toString());
-  }, [volume])
+  }, [volume]);
 
   useEffect(() => {
     localStorage.setItem("liveStreamMuted", JSON.stringify(isMuted));
-  }, [isMuted])
+  }, [isMuted]);
 
   useEffect(() => {
     localStorage.setItem("currentStream", currentStream.id);
-  }, [currentStream])
+  }, [currentStream]);
 
   useEffect(() => {
     if (!audioRef.current) {
@@ -101,7 +70,7 @@ const LiveStreamPlayer = () => {
     const handleCanPlay = () => {
       setIsLoading(false);
       console.log(`Stream ${currentStream.name} pronto para reprodução`);
-    }
+    };
 
     const handleError = (e: Event) => {
       console.error(`Erro no stream ${currentStream.name}:`, e);
@@ -127,7 +96,7 @@ const LiveStreamPlayer = () => {
       audio.removeEventListener("canplay", handleCanPlay);
       audio.removeEventListener("error", handleError);
       audio.removeEventListener("loadstart", handleLoadStart);
-    }
+    };
   }, [currentStream, volume, isMuted, toast]);
 
   const handlePlayPause = async () => {
@@ -161,11 +130,11 @@ const LiveStreamPlayer = () => {
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
   const handleVolumeChange = (value: number[]) => {
     const newVolume = value[0];
-    setVolume(newVolume)
+    setVolume(newVolume);
     if (audioRef.current) {
       audioRef.current.volume = newVolume / 100;
     }
@@ -174,7 +143,7 @@ const LiveStreamPlayer = () => {
     } else if (isMuted) {
       setIsMuted(false);
     }
-  }
+  };
 
   const toggleMute = () => {
     const newMuted = !isMuted;
@@ -182,7 +151,7 @@ const LiveStreamPlayer = () => {
     if (audioRef.current) {
       audioRef.current.muted = newMuted;
     }
-  }
+  };
 
   const switchStream = (stream: LiveStream) => {
     if (isPlaying && audioRef.current) {
@@ -195,7 +164,7 @@ const LiveStreamPlayer = () => {
       title: "Estação Alterada",
       description: `Selecionado: ${stream.name}`,
     });
-  }
+  };
 
   return (
     <section className="flex item-center justify-between gap-6 mx-auto">
@@ -214,12 +183,18 @@ const LiveStreamPlayer = () => {
               ) : (
                 <WifiOff className="text-gray-400" size={16} />
               )}
-              <span className={`text-sm font-medium ${isConnected ? "text-green-600" : "text-gray-500"}`}>
+              <span
+                className={`text-sm font-medium ${
+                  isConnected ? "text-green-600" : "text-gray-500"
+                }`}
+              >
                 {isConnected ? "LIVE" : "OFFLINE"}
               </span>
             </div>
             <h3 className="text-lg font-semibold">{currentStream.name}</h3>
-            <p className="text-sm text-muted-foreground">{currentStream.description}</p>
+            <p className="text-sm text-muted-foreground">
+              {currentStream.description}
+            </p>
           </div>
 
           <div className="flex justify-center">
@@ -242,16 +217,28 @@ const LiveStreamPlayer = () => {
 
           <div className="flex items-center space-x-3">
             <Button variant="ghost" size="icon" onClick={toggleMute}>
-              {isMuted || volume === 0 ? <VolumeX size={20} /> : <Volume2 size={20} />}
+              {isMuted || volume === 0 ? (
+                <VolumeX size={20} />
+              ) : (
+                <Volume2 size={20} />
+              )}
             </Button>
-            <Slider value={[isMuted ? 0 : volume]} min={0} max={100} step={1} onValueChange={handleVolumeChange} />
+            <Slider
+              value={[isMuted ? 0 : volume]}
+              min={0}
+              max={100}
+              step={1}
+              onValueChange={handleVolumeChange}
+            />
             <span className="text-sm font-mono w-12 text-right">{volume}%</span>
           </div>
         </CardContent>
       </Card>
       <div className="w-2/3 space-y-2">
-        <h4 className="font-medium text-center mb-3 bg-secondary p-1 rounded-md">Estações Disponíveis</h4>
-        {liveStreams.map((stream) => (
+        <h4 className="font-medium text-center mb-3 bg-secondary p-1 rounded-md">
+          Estações Disponíveis
+        </h4>
+        {mimic.liveStreams.map((stream) => (
           <button
             key={stream.id}
             onClick={() => switchStream(stream)}
@@ -267,7 +254,7 @@ const LiveStreamPlayer = () => {
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default LiveStreamPlayer;
