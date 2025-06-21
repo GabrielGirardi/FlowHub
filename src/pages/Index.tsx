@@ -36,7 +36,7 @@ const Index = () => {
   };
 
   return (
-    <div ref={containerRef} className="min-h-screen">
+    <div ref={containerRef} className="w-full min-h-screen">
       <motion.section
         className="relative h-screen flex items-center justify-center overflow-hidden"
         style={{ y: backgroundY }}
@@ -106,10 +106,10 @@ const Index = () => {
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.9, duration: 0.8 }}
-            className="mt-12"
+            className="mt-16"
           >
             <div className="animate-bounce">
-              <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center">
+              <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex mx-auto justify-center">
                 <div className="w-1 h-3 bg-primary/50 rounded-full mt-2 animate-pulse"></div>
               </div>
             </div>
@@ -117,7 +117,7 @@ const Index = () => {
         </motion.div>
       </motion.section>
 
-      <div className="py-20 px-4 max-w-7xl mx-auto">
+      <div className="py-36 px-4 max-w-7xl mx-auto">
         {mimic.pages.welcome.categories.map((category, categoryIndex) => (
           <motion.section
             key={category.id}

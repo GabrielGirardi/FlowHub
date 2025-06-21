@@ -74,8 +74,8 @@ const AITools = () => {
   const regularTools = filteredTools.filter((tool) => !tool.featured);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
-      <div className="container mx-auto max-w-7xl px-4 py-8">
+    <div className="min-h-screen relative bg-gradient-to-br from-background via-background to-muted/20">
+      <div className="container mx-auto w-full max-w-7xl px-4 py-8">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}

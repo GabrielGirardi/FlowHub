@@ -18,7 +18,7 @@ const LiveStreamPlayer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(70);
   const [isMuted, setIsMuted] = useState(false);
-  const [currentStream, setCurrentStream] = useState(liveStreams[0]);
+  const [currentStream, setCurrentStream] = useState(mimic.liveStreams[0]);
   const [isConnected, setIsConnected] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -169,13 +169,13 @@ const LiveStreamPlayer = () => {
   return (
     <section className="flex item-center justify-between gap-6 mx-auto">
       <Card className="w-1/3 border-none p-2 bg-gradient-to-r from-red-500 to-indigo-600 gap-2 filter">
-        <CardHeader className="bg-secondary py-4 rounded-t-lg bg-white/40 dark:bg-slate-800/50 rounded-t-lg">
+        <CardHeader className="py-4 rounded-t-lg bg-white/40 dark:bg-slate-800/50 ">
           <CardTitle className="text-2xl flex items-center justify-center gap-2">
             <Radio className="text-white" size={24} />
             Live Lo-Fi Radio
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-6 bg-secondary py-6 rounded-b-lg bg-white/40 dark:bg-slate-800/50">
+        <CardContent className="space-y-6 py-6 rounded-b-lg bg-white/40 dark:bg-slate-800/50">
           <div className="text-center p-4 rounded-lg bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm">
             <div className="flex items-center justify-center gap-2 mb-2">
               {isConnected ? (

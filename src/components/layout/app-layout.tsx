@@ -1,4 +1,3 @@
-import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
@@ -8,7 +7,6 @@ const Layout = () => {
   const [theme, setTheme] = useState<"light" | "dark">(
     () => (localStorage.getItem("theme") as "light" | "dark") || "dark"
   );
-  const isMobile = useIsMobile();
 
   useEffect(() => {
     const root = window.document.documentElement;
@@ -26,11 +24,10 @@ const Layout = () => {
       <Sidebar theme={theme} toggleTheme={toggleTheme} />
       <main
         className={cn(
-          "flex-1 transition-all duration-300 overflow-x-hidden",
-          isMobile ? "ml-0" : "ml-64"
+          "flex-1 transition-all duration-300 w-full overflow-x-hidden"
         )}
       >
-        <div className="container mx-auto p-4 md:p-6">
+        <div className="w-full mx-auto md:py-6">
           <Outlet />
         </div>
       </main>
