@@ -30,13 +30,14 @@ export const Community: React.FC = () => {
 
           <div className="text-muted-foreground">
             <p className="mb-2">{t('main.community.opensource')}</p>
-            <Link
-              to="https://github.com/GabrielGirardi/FlowHub"
+            <a
+              href="https://github.com/GabrielGirardi/FlowHub"
               className="text-primary hover:text-primary/80 font-semibold text-lg transition-colors"
               target="_blank"
+              rel="noopener noreferrer"
             >
               {t('main.community.contribute')}
-            </Link>
+            </a>
           </div>
     </motion.div>
   )
