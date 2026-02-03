@@ -1,0 +1,105 @@
+{
+  "categories": {
+    "productivity": {
+      "title": "Produtividade",
+      "description": "Ferramentas para maximizar sua eficiência"
+    },
+    "development": {
+      "title": "Desenvolvimento",
+      "description": "Utilitários essenciais para desenvolvedores"
+    },
+    "utilities": {
+      "title": "Utilitários",
+      "description": "Ferramentas práticas para o dia a dia"
+    },
+    "entertainment": {
+      "title": "Entretenimento",
+      "description": "Relaxe e divirta-se durante os intervalos"
+    }
+  },
+  "tools": {
+    "todo": {
+      "title": "To-Do List",
+      "description": "Organize suas tarefas com facilidade"
+    },
+    "kanban": {
+      "title": "Kanban Board",
+      "description": "Gerencie projetos com quadros visuais"
+    },
+    "pomodoro": {
+      "title": "Pomodoro Timer",
+      "description": "Técnica de produtividade com intervalos"
+    },
+    "notepad": {
+      "title": "Notepad",
+      "description": "Anotações rápidas e simples"
+    },
+    "waterReminder": {
+      "title": "Water Reminder",
+      "description": "Lembrete para se hidratar regularmente"
+    },
+    "internetSearch": {
+      "title": "Internet Search",
+      "description": "Pesquise na web entre as melhores opções do FlowHub"
+    },
+    "aiTools": {
+      "title": "AI Tools",
+      "description": "Ferramentas de inteligência artificial"
+    },
+    "deployChecklist": {
+      "title": "Deploy Checklist",
+      "description": "Lista de verificação para deploys"
+    },
+    "codeSnippets": {
+      "title": "Code Snippets",
+      "description": "Gerenciador de trechos de código"
+    },
+    "quickSearch": {
+      "title": "Quick Search",
+      "description": "Pesquisa rápida em projetos"
+    },
+    "fakeData": {
+      "title": "Fake Data Generator",
+      "description": "Gere dados falsos para testes"
+    },
+    "jsonFormatter": {
+      "title": "JSON Formatter",
+      "description": "Formate e valide JSON facilmente"
+    },
+    "currencyConverter": {
+      "title": "Currency Converter",
+      "description": "Conversor de moedas em tempo real"
+    },
+    "techNews": {
+      "title": "Tech News",
+      "description": "Últimas notícias de tecnologia"
+    },
+    "lofi": {
+      "title": "Lo-Fi Music",
+      "description": "Concentre-se com música ambiente"
+    },
+    "youtube": {
+      "title": "YouTube Player",
+      "description": "Player de vídeos do YouTube"
+    }
+  },
+  "main": {
+    "subtitle": {
+      "start": "Seu hub definitivo de ferramentas para",
+      "middle": "produtividade",
+      "end": "desenvolvimento"
+    },
+    "and": "e",
+    "tags": {
+      "tools": "Ferramentas",
+      "categories": "Categorias",
+      "free": "Gratuito"
+    },
+    "community": {
+      "title": "Junte-se à Comunidade FlowHub 🚀",
+      "description": "Descubra ferramentas, compartilhe ideias e ajude a moldar o futuro da produtividade e do desenvolvimento.",
+      "opensource": "Um projeto open-source construído com ❤️ por contribuidores ao redor do mundo",
+      "contribute": "Contribua no GitHub"
+    }
+  }
+}
