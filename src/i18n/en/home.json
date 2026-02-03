@@ -1,0 +1,105 @@
+{
+  "categories": {
+    "productivity": {
+      "title": "Productivity",
+      "description": "Tools to maximize your efficiency"
+    },
+    "development": {
+      "title": "Development",
+      "description": "Essential utilities for developers"
+    },
+    "utilities": {
+      "title": "Utilities",
+      "description": "Practical tools for everyday use"
+    },
+    "entertainment": {
+      "title": "Entertainment",
+      "description": "Relax and have fun during breaks"
+    }
+  },
+  "tools": {
+    "todo": {
+      "title": "To-Do List",
+      "description": "Easily organize your tasks"
+    },
+    "kanban": {
+      "title": "Kanban Board",
+      "description": "Manage projects with visual boards"
+    },
+    "pomodoro": {
+      "title": "Pomodoro Timer",
+      "description": "Boost focus with timed intervals"
+    },
+    "notepad": {
+      "title": "Notepad",
+      "description": "Quick and simple notes"
+    },
+    "waterReminder": {
+      "title": "Water Reminder",
+      "description": "Stay hydrated with regular reminders"
+    },
+    "internetSearch": {
+      "title": "Internet Search",
+      "description": "Search the web with FlowHub’s best options"
+    },
+    "aiTools": {
+      "title": "AI Tools",
+      "description": "Artificial intelligence utilities"
+    },
+    "deployChecklist": {
+      "title": "Deploy Checklist",
+      "description": "Verification list for deployments"
+    },
+    "codeSnippets": {
+      "title": "Code Snippets",
+      "description": "Manage reusable code fragments"
+    },
+    "quickSearch": {
+      "title": "Quick Search",
+      "description": "Fast search across projects"
+    },
+    "fakeData": {
+      "title": "Fake Data Generator",
+      "description": "Generate test data easily"
+    },
+    "jsonFormatter": {
+      "title": "JSON Formatter",
+      "description": "Format and validate JSON effortlessly"
+    },
+    "currencyConverter": {
+      "title": "Currency Converter",
+      "description": "Real-time currency conversion"
+    },
+    "techNews": {
+      "title": "Tech News",
+      "description": "Latest technology news"
+    },
+    "lofi": {
+      "title": "Lo-Fi Music",
+      "description": "Focus with ambient music"
+    },
+    "youtube": {
+      "title": "YouTube Player",
+      "description": "Play YouTube videos directly"
+    }
+  },
+  "main": {
+    "subtitle": {
+      "start": "Your ultimate hub of tools for",
+      "middle": "productivity",
+      "end": "development"
+    },
+    "and": "and",
+    "tags": {
+      "tools": "Tools",
+      "categories": "Categories",
+      "free": "Free"
+    },
+    "community": {
+      "title": "Join the FlowHub Community 🚀",
+      "description": "Discover tools, share ideas, and help shape the future of productivity and development.",
+      "opensource": "An open-source project built with ❤️ by contributors worldwide",
+      "contribute": "Contribute on GitHub"
+    }    
+  }
+}
