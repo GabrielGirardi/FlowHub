@@ -1,0 +1,16 @@
+{
+  "main": {
+    "title": "To-do List",
+    "placeholder": "Type your task here...",
+    "pending": {
+      "tab": "Pending Tasks",
+      "title": "No pending tasks 🎉",
+      "description": "You're all caught up! How about enjoying the moment or adding something new?"
+    },
+    "done": {
+      "tab": "Done Tasks",
+      "title": "Nothing here yet",
+      "description": "Complete your tasks to see them proudly displayed here!"
+    }
+  }
+}

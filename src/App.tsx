@@ -9,8 +9,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { TimerProvider } from '@/contexts/TimerContext'
 import Layout from '@/components/layout/Layout'
 import GlobalTimerNotification from '@/components/GlobalTimerNotification'
-import Index from '@/pages/home/Index'
-import TodoList from '@/pages/TodoList'
+
+import Home from '@/pages/home'
+import TodoList from '@/pages/todoList'
 import DeployChecklist from '@/pages/DeployChecklist'
 import CodeSnippets from '@/pages/CodeSnippets'
 import LofiMusic from '@/pages/LofiMusic'
@@ -45,7 +46,7 @@ const App = () => (
                     <BrowserRouter>
                         <Routes>
                             <Route element={<Layout />}>
-                                <Route path="/" element={<Index />} />
+                                <Route path="/" element={<Home />} />
                                 <Route path="/todo" element={<TodoList />} />
                                 <Route path="/deploy-checklist" element={<DeployChecklist />} />
                                 <Route path="/code-snippets" element={<CodeSnippets />} />

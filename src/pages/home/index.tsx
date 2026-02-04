@@ -9,7 +9,7 @@ import { useToolsData } from './hooks/useToolsData'
 import { Category } from './components/category';
 import { Community } from './components/community';
 
-const Index = () => {
+function Home() {
     const { t } = useTranslator('home')
 
     const containerRef = useRef<HTMLDivElement>(null)
@@ -108,4 +108,4 @@ const Index = () => {
     )
 }
 
-export default Index
+export default Home
