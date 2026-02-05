@@ -12,5 +12,15 @@
       "title": "Nothing here yet",
       "description": "Complete your tasks to see them proudly displayed here!"
     }
+  },
+  "toast": {
+    "added": {
+      "title": "Task added",
+      "description": "New task created successfully."
+    },
+    "removed": {
+      "title": "Task removed",
+      "description": "The task was deleted successfully."
+    }
   }
 }
