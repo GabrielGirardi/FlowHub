@@ -12,5 +12,15 @@
       "title": "Ainda nada por aqui",
       "description": "Conclua suas tarefas para vê-las aparecerem aqui com orgulho!"
     }
+  },
+  "toast": {
+    "added": {
+      "title": "Tarefa adicionada",
+      "description": "Nova tarefa criada com sucesso."
+    },
+    "removed": {
+      "title": "Tarefa removida",
+      "description": "A tarefa foi excluída com sucesso."
+    }
   }
 }

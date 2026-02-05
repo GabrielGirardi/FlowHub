@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import { useToast } from '@/hooks/use-toast'
+import { useTranslation } from 'react-i18next'
 
 export type Todo = {
   id: string
@@ -9,6 +10,7 @@ export type Todo = {
 }
 
 export function useTodos() {
+  const { t } = useTranslation('todo')
   const [todos, setTodos] = useState<Todo[]>(() => {
     const saved = localStorage.getItem('todos')
     return saved ? JSON.parse(saved) : []
@@ -33,8 +35,8 @@ export function useTodos() {
     saveTodos([...todos, todo])
 
     toast({
-      title: 'Tarefa adicionada',
-      description: 'Nova tarefa criada com sucesso.'
+      title: t('toast.added.title'),
+      description: t('toast.added.description')
     })
   }
 
@@ -50,8 +52,8 @@ export function useTodos() {
     saveTodos(todos.filter(t => t.id !== id))
 
     toast({
-      title: 'Tarefa removida',
-      description: 'A tarefa foi excluída com sucesso.'
+      title: t('toast.removed.title'),
+      description: t('toast.removed.description')
     })
   }
 
