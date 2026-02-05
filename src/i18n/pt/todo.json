@@ -1,0 +1,26 @@
+{
+  "main": {
+    "title": "Lista de afazeres",
+    "placeholder": "Digite sua tarefa aqui...",
+    "pending": {
+      "tab": "Tarefas Pendentes",
+      "title": "Nenhuma tarefa pendente 🎉",
+      "description": "Você está em dia! Que tal aproveitar o momento ou adicionar algo novo?"
+    },
+    "done": {
+      "tab": "Tarefas Concluídas",
+      "title": "Ainda nada por aqui",
+      "description": "Conclua suas tarefas para vê-las aparecerem aqui com orgulho!"
+    }
+  },
+  "toast": {
+    "added": {
+      "title": "Tarefa adicionada",
+      "description": "Nova tarefa criada com sucesso."
+    },
+    "removed": {
+      "title": "Tarefa removida",
+      "description": "A tarefa foi excluída com sucesso."
+    }
+  }
+}

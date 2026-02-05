@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
-enum TextTypeEnum {
+export enum TextTypeEnum {
   TITLE = 'title',
   SUBTITLE = 'subtitle',
   DESCRIPTION = 'description',
