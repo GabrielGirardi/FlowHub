@@ -20,7 +20,7 @@ export function TodoItem({ todo, onToggle, onDelete }: Props) {
           <Checkbox
             checked={todo.completed}
             onCheckedChange={() => onToggle(todo.id)}
-            className={todo.completed ? '!border-green-500 !bg-green-500' : 'border-red-500' + ' cursor-pointer'}
+            className={`cursor-pointer ${todo.completed ? '!border-green-500 !bg-green-500' : 'border-red-500'}`}
           />
           <Label
             className={`flex-1 cursor-pointer w-24 overflow-y-scroll flex flex-wrap break-words whitespace-pre-wrap ${
