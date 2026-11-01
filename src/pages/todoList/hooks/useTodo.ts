@@ -23,8 +23,8 @@ export function useTodos() {
     setTodos(updated)
   }
 
-  const addTodo = (text: string) => {
-    if (!text.trim()) return
+  const addTodo = (text: string): Todo | undefined => {
+    if (!text.trim()) return undefined
 
     const todo: Todo = {
       id: Date.now().toString(),
@@ -38,6 +38,8 @@ export function useTodos() {
       title: t('toast.added.title'),
       description: t('toast.added.description')
     })
+
+    return todo
   }
 
   const toggleTodo = (id: string) => {

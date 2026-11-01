@@ -13,6 +13,8 @@ import {
 import { Play, Pause, RotateCcw, Settings, Clock, Coffee, Brain } from "lucide-react";
 import MusicPlayer from "@/components/MusicPlayer";
 import { useTimer } from "@/contexts/TimerContext";
+import { useTodos } from "@/pages/todoList/hooks/useTodo";
+import { useTranslator } from "@/hooks/useTranslate";
 
 type TimerSettings = {
     pomodoro: number;
@@ -40,6 +42,10 @@ const Pomodoro = () => {
         changeMode,
         updateSettings
     } = useTimer();
+    const { todos } = useTodos();
+    const { t } = useTranslator("home");
+    const activeFocusTaskId = localStorage.getItem("activePomodoroTaskId");
+    const activeFocusTask = todos.find(todo => todo.id === activeFocusTaskId);
 
     const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
     const [editableSettings, setEditableSettings] = useState<TimerSettings>(settings);
@@ -183,11 +189,20 @@ const Pomodoro = () => {
                                         <Settings size={18} />
                                     </Button>
                                 </div>
+                                {activeFocusTask && (
+                                    <p className="truncate text-sm text-gray-300">
+                                        {t("main.focus.activeTask")}: <span className="font-medium text-white">{activeFocusTask.text}</span>
+                                    </p>
+                                )}
                             </CardHeader>
                             <CardContent>
                                 <Tabs
                                     value={activeTab}
-                                    onValueChange={(value) => changeMode(value as any)}
+                                    onValueChange={(value) => {
+                                        if (value === "pomodoro" || value === "shortBreak" || value === "longBreak") {
+                                            changeMode(value);
+                                        }
+                                    }}
                                     className="mb-8"
                                 >
                                     <TabsList className="grid grid-cols-3 mb-8 bg-gray-700 border-gray-600">
