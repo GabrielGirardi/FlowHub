@@ -84,6 +84,16 @@
     }
   },
   "main": {
+    "focus": {
+      "title": "Start with what matters",
+      "description": "Choose a task and start a focus session.",
+      "taskLabel": "Task to focus on",
+      "taskPlaceholder": "Select a task",
+      "newTask": "Create a new task",
+      "newTaskPlaceholder": "What are you working on?",
+      "start": "Start focusing",
+      "activeTask": "Focusing on"
+    },
     "subtitle": {
       "start": "Your ultimate hub of tools for",
       "middle": "productivity",

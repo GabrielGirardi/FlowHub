@@ -8,6 +8,7 @@ import { useCategoriesData } from './hooks/useCategoriesData'
 import { useToolsData } from './hooks/useToolsData'
 import { Category } from './components/category';
 import { Community } from './components/community';
+import { FocusStarter } from './components/focusStarter'
 
 function Home() {
     const { t } = useTranslator('home')
@@ -27,7 +28,7 @@ function Home() {
     return (
         <div ref={containerRef} className="min-h-screen">
             <motion.section
-                className="relative h-screen flex items-center justify-center overflow-hidden"
+                className="relative min-h-screen flex items-center justify-center overflow-hidden py-12"
                 style={{ y: backgroundY }}
             >
                 <motion.div
@@ -38,12 +39,12 @@ function Home() {
                         initial={{ scale: 0.5, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ duration: 0.8, type: "spring" }}
-                        className="mb-8"
+                        className="mb-5 sm:mb-8"
                     >
                         <div className="relative inline-block">
                             <div className="absolute -inset-4 bg-gradient-to-r from-primary via-primary/60 to-primary rounded-full blur-2xl opacity-30 animate-pulse"></div>
-                            <div className="relative flex items-center justify-center bg-background rounded-full p-8 border border-primary/20 shadow-2xl">
-                                <Zap size={80} className="text-primary" />
+                            <div className="relative flex items-center justify-center bg-background rounded-full p-5 sm:p-8 border border-primary/20 shadow-2xl">
+                            <Zap size={56} className="text-primary sm:h-20 sm:w-20" />
                             </div>
                         </div>
                     </motion.div>
@@ -52,7 +53,7 @@ function Home() {
                         initial={{ y: 50, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.3, duration: 0.8 }}
-                        className="text-7xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary/60 mb-6"
+                        className="text-5xl sm:text-7xl md:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/80 to-primary/60 mb-4 sm:mb-6"
                     >
                         FlowHub
                     </motion.h1>
@@ -61,7 +62,7 @@ function Home() {
                         initial={{ y: 30, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.5, duration: 0.8 }}
-                        className="text-2xl md:text-3xl text-muted-foreground mb-8 leading-relaxed"
+                        className="text-xl md:text-3xl text-muted-foreground mb-5 sm:mb-8 leading-relaxed"
                     >
                         {t('main.subtitle.start')}
                         <span className="text-primary font-semibold">{t('main.subtitle.middle')}</span> {t('main.and')}
@@ -72,7 +73,16 @@ function Home() {
                         initial={{ y: 30, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.7, duration: 0.8 }}
-                        className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground"
+                        className="mx-auto w-full max-w-xl"
+                    >
+                        <FocusStarter />
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ y: 30, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ delay: 0.8, duration: 0.8 }}
+                        className="mt-5 flex flex-wrap justify-center gap-2 text-xs text-muted-foreground sm:mt-8 sm:gap-4 sm:text-sm"
                     >
                         <span className="px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
                             {tools.length} {t('main.tags.tools')}
@@ -88,8 +98,8 @@ function Home() {
                     <motion.div
                         initial={{ y: 30, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.9, duration: 0.8 }}
-                        className="mt-12"
+                        transition={{ delay: 1, duration: 0.8 }}
+                        className="mt-6 sm:mt-10"
                     >
                         <div className="animate-bounce">
                             <div className="w-6 h-10 border-2 border-primary/50 rounded-full flex justify-center">

@@ -84,6 +84,16 @@
     }
   },
   "main": {
+    "focus": {
+      "title": "Comece pelo que importa",
+      "description": "Escolha uma tarefa e inicie uma sessão de foco.",
+      "taskLabel": "Tarefa para focar",
+      "taskPlaceholder": "Selecione uma tarefa",
+      "newTask": "Criar nova tarefa",
+      "newTaskPlaceholder": "O que você vai fazer?",
+      "start": "Começar foco",
+      "activeTask": "Focando em"
+    },
     "subtitle": {
       "start": "Seu hub definitivo de ferramentas para",
       "middle": "produtividade",
